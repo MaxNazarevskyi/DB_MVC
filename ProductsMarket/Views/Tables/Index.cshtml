@@ -1,0 +1,147 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    var products = ViewData["Products"] as List<Product>;
+    var customers = ViewData["Customers"] as List<Customers>;
+    var employees = ViewData["Employees"] as List<Employees>;
+    var orders = ViewData["Orders"] as List<Order>;
+    var orderDetails = ViewData["OrderDetails"] as List<OrderDetails>;
+}
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<h1>Products Market Database</h1>
+
+<h2>Products</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Weight</th>
+            <th>Manufacture Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in products)
+        {
+                <tr>
+                    <td>@product.id</td>
+                    <td>@product.name</td>
+                    <td>@product.price</td>
+                    <td>@product.quantity</td>
+                    <td>@product.weight</td>
+                    <td>@product.manufacture_date</td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Customers</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>Discount(%)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in customers)
+        {
+                <tr>
+                    <td>@customer.id</td>
+                    <td>@customer.name</td>
+                    <td>@customer.city</td>
+                    <td>@customer.address</td>
+                    <td>@customer.discount</td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Employees</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Hire Date</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in employees)
+        {
+                <tr>
+                    <td>@employee.id</td>
+                    <td>@employee.name</td>
+                    <td>@employee.position</td>
+                    <td>@employee.hire_date</td>
+                    <td>@employee.salary</td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Order Details</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Product ID</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order_detail in orderDetails)
+        {
+                <tr>
+                    <td>@order_detail.order_id</td>
+                    <td>@order_detail.product_id</td>
+                    <td>@order_detail.quantity</td>
+                    <td>@order_detail.price</td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Orders</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer ID</th>
+            <th>Order Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in orders)
+        {
+                    <tr>
+                        <td>@order.id</td>
+                        <td>@order.customer_id</td>
+                        <td>@order.order_date</td>
+                    </tr>
+        }
+    </tbody>
+</table>
